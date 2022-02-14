@@ -150,7 +150,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     game.splash("Is the time before 6 A.M?")
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Animal, function (sprite, otherSprite) {
-    let Cat: Sprite = null
+    let strayAnimal: Sprite = null
     game.splash("Should we take in this stray cat?")
     response = game.askForString("Yes (y) or No (n)", 1)
     if (response == "y") {
@@ -194,7 +194,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Animal, function (sprite, otherS
                 . . . . . . . . . . . . . . . . 
                 `)
             pause(100)
-            Cat.follow(mySprite, 10)
+            strayAnimal.follow(mySprite, 10)
         }
         scene.setBackgroundColor(0)
         game.splash("You made great choices!")
@@ -240,7 +240,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Animal, function (sprite, otherS
                 `)
             pause(100)
         }
-        Cat.destroy()
+        strayAnimal.destroy()
         scene.setBackgroundImage(img`
             ................................................................................................................................................................
             ................................................................................................................................................................
