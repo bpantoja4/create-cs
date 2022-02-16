@@ -4,7 +4,6 @@ namespace SpriteKind {
 let mySprite: Sprite = null
 let response = ""
 let cat: Sprite = null
-let strayAnimal: Sprite = null
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     scene.setBackgroundImage(img`
         bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
@@ -152,13 +151,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     game.splash("Is the time before 6 A.M?")
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
-    let junkFood: Sprite = null
     game.splash("Should we eat pizza for breakfast?")
     response = game.askForString("Yes (y) or No (n)", 1)
     if (response == "y") {
         mySprite.sayText("YUMMY", 2000, true)
-        junkFood.startEffect(effects.disintegrate)
-        junkFood.destroy()
         for (let index = 0; index < 10; index++) {
             pause(100)
             mySprite.setImage(img`
@@ -385,7 +381,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
         }
         pause(5000)
     } else {
-        junkFood.destroy()
         mySprite.setVelocity(-50, 0)
         for (let index = 0; index < 10; index++) {
             pause(100)
@@ -550,25 +545,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
             4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
             4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
             `)
-        strayAnimal = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `, SpriteKind.animal)
-        strayAnimal.setPosition(72, 88)
         mySprite.setPosition(152, 88)
         mySprite.setVelocity(-50, 0)
         for (let index = 0; index < 6; index++) {
@@ -613,5 +589,4 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
             pause(100)
         }
     }
-    game.splash("helli")
 })
