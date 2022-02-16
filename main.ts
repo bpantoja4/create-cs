@@ -589,4 +589,5 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
             pause(100)
         }
     }
+    game.splash("hello")
 })
