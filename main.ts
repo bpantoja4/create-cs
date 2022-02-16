@@ -4,6 +4,7 @@ namespace SpriteKind {
 let mySprite: Sprite = null
 let response = ""
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    game.splash("hello")
     scene.setBackgroundImage(img`
         bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
         bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
@@ -127,24 +128,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         `)
     game.splash("Wake Up")
-    mySprite = sprites.create(img`
-        . . . . f f f f . . . . . 
-        . . f f f f f f f f . . . 
-        . f f f f f f c f f f . . 
-        f f f f f f c c f f f c . 
-        f f f c f f f f f f f c . 
-        c c c f f f e e f f c c . 
-        f f f f f e e f f c c f . 
-        f f f b f e e f b f f f . 
-        . f 4 1 f 4 4 f 1 4 f . . 
-        . f e 4 4 4 4 4 4 e f . . 
-        . f f f e e e e f f f . . 
-        f e f b 7 7 7 7 b f e f . 
-        e 4 f 7 7 7 7 7 7 f 4 e . 
-        e e f 6 6 6 6 6 6 f e e . 
-        . . . f f f f f f . . . . 
-        . . . f f . . f f . . . . 
-        `, SpriteKind.Player)
     mySprite.setPosition(116, 81)
     game.splash("Check the Time")
     game.splash("Is the time before 6 A.M?")
@@ -569,5 +552,4 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
             pause(100)
         }
     }
-    game.splash("hello")
 })
