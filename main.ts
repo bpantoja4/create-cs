@@ -9,6 +9,7 @@ function checkScore () {
     }
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    game.splash("A Sprites life")
     listFood = [
     img`
         ...........ccccc66666...........
